@@ -136,7 +136,7 @@ def printme(port,host,exploit,cve,os,rank,title):
 	else:
 		#some payloads we have yet to work out so for now its TODO :(
 		payload = "TODO"
-	 print "msfconsole -x 'use exploit/"+exploit; set "PAYLOAD="+payload; set "RPORT="+port; set "RHOST="+host; run'" 	
+	print "msfconsole -x 'use exploit/+exploit; set PAYLOAD=+payload; set RPORT=+port; set RHOST=+host; run'" 	
 	print ""
 
 def checkcve(cve,port,host):
